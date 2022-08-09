@@ -13,14 +13,14 @@ set(COMMON_SRC main.cpp timer.hpp)
 
 # RF_136 target
 add_executable(rf136-measure-test ${COMMON_SRC})
-target_compile_definitions(rf136-measure-test PUBLIC RECFUSION_136)
+target_compile_definitions(rf136-measure-test PUBLIC RF_136)
 target_include_directories(rf136-measure-test BEFORE PUBLIC ${RECFUSION_136_PATH}/include)
 target_link_directories(rf136-measure-test BEFORE PUBLIC ${RECFUSION_136_PATH}/lib)
 target_link_libraries(rf136-measure-test RecFusion)
 
 # RF_220 target
 add_executable(rf220-measure-test ${COMMON_SRC})
-target_compile_definitions(rf220-measure-test PUBLIC RECFUSION_220)
+target_compile_definitions(rf220-measure-test PUBLIC RF_220)
 target_include_directories(rf220-measure-test BEFORE PUBLIC ${RECFUSION_220_PATH}/include)
 target_link_directories(rf220-measure-test BEFORE PUBLIC ${RECFUSION_220_PATH}/lib)
 target_link_libraries(rf220-measure-test RecFusionSDK)
