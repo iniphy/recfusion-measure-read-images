@@ -8,6 +8,7 @@ using namespace RecFusion;
 
 int main() {
     const int max_num_read_images = 1000;
+    const int max_num_read_images = 100;
     int num_sensor = 0;
 
 #ifdef RF_136
