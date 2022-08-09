@@ -1,4 +1,5 @@
 #include "timer.hpp"
+#include "utils.hpp"
 
 #include <RecFusion.h>
 #include <vector>
@@ -43,12 +44,22 @@ int main() {
     }
 
     // Measuring the time of reading images (color and depth)
-    for (int capture_id = 0; capture_id < 100; ++capture_id) {
+    std::cout << "Performing " << max_num_read_images << " image reads per sensors" << std::endl;
+    for (int capture_id = 0; capture_id < max_num_read_images; ++capture_id) {
         for (int sensor_id = 0; sensor_id < num_sensor; ++sensor_id) {
             timer.reset();
             sensors[sensor_id]->readImage(*depth_img, *color_img);
             times[sensor_id].push_back(timer.elapsed());
         }
+    }
+
+    // Displaying measurements
+    std::cout << "=== Measurements ===" << std::endl;
+    for (int sensor_id = 0; sensor_id < num_sensor; ++sensor_id) {
+        std::cout << "sensor_id=" << sensor_id <<
+                     "; min=" << MinValue(times[sensor_id]) << "ms" <<
+                     "; mean=" << MeanValue(times[sensor_id]) << "ms" <<
+                     "; max=" << MaxValue(times[sensor_id]) << "ms" << std::endl;
     }
 
     // Closing sensors

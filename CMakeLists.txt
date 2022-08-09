@@ -9,7 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/)
 set (RECFUSION_136_PATH "C:\\Program Files\\ImFusion\\RecFusionSDK 1.3.6")
 set (RECFUSION_220_PATH "C:\\Program Files\\ImFusion\\RecFusion SDK 2.2.0")
 
-set(COMMON_SRC main.cpp timer.hpp)
+set(COMMON_SRC main.cpp timer.hpp utils.hpp)
 
 # RF_136 target
 add_executable(rf136-measure-test ${COMMON_SRC})
