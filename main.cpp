@@ -79,6 +79,11 @@ int main() {
 
     // Closing sensors
     for (int sensor_id = 0; sensor_id < num_sensor; ++sensor_id) {
+#ifdef RF_220
+        // Quick fix: we need to stop sensors before closing them, otherwise, an error occurs
+        // We need to do this even though the Sensor::start() has been never called
+        sensors[sensor_id]->stop();
+#endif
         sensors[sensor_id]->close();
     }
 
